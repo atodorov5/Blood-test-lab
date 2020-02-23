@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="350" Width="350" Background="DodgerBlue" Icon="/images/blood-test.png" >
 
-    <Grid Margin="20,20,20,20" Background="AliceBlue" >
+    <Grid Margin="20,20,20,20" Background="AliceBlue" FocusManager.FocusedElement="{Binding ElementName=username}" >
         <Label Content="Username:" HorizontalAlignment="Left" Margin="50,122,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="55,158,0,0" VerticalAlignment="Top" FontSize="16"/>
         <TextBox Name="username"  HorizontalAlignment="Left" Height="23" Margin="140,127,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="16"/>
