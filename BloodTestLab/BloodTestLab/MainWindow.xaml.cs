@@ -34,16 +34,16 @@ namespace BloodTestLab
             {
                 UserWindow userW = new UserWindow();
                 userW.Show();
-                this.Close();
+               // this.Close();
             }
             else if(username.Text=="admin" && password.Password.ToString() == "admin")
             {
                 AdminWindow adminW = new AdminWindow();
                 adminW.Show();
-                this.Close();
+               // this.Close();
             }
             else
-                loginError.Content = "Wrong username or password!";
+                loginError.Content = "Грешно потребителско име или парола!";
         }
 
         public String CreateSalt(int size)

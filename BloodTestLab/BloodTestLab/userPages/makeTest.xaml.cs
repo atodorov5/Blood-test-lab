@@ -13,16 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BloodTestLab
+namespace BloodTestLab.userPages
 {
     /// <summary>
-    /// Interaction logic for AddNewUser.xaml
+    /// Interaction logic for makeTest.xaml
     /// </summary>
-    public partial class AddNewUser : Page
+    public partial class makeTest : Page
     {
-        public AddNewUser()
+        public makeTest()
         {
             InitializeComponent();
+            testList.Items.Add("ПКК");
+            testList.Items.Add("Биохимия");
+            testList.Items.Add("Йонограма");
+            testList.Items.Add("Туморни маркери");
         }
     }
 }

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,16 +56,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddNewUser.xaml.cs">
+    <Compile Include="adminPages\AddClinic.xaml.cs">
+      <DependentUpon>AddClinic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="adminPages\AddNewUser.xaml.cs">
       <DependentUpon>AddNewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="adminPages\AddTest.xaml.cs">
+      <DependentUpon>AddTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userPages\makeTest.xaml.cs">
+      <DependentUpon>makeTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddNewUser.xaml">
+    <Page Include="adminPages\AddClinic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\AddNewUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\AddTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,6 +102,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="userPages\makeTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,8 +139,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\blood-test.png" />
+    <Resource Include="images\fire-exit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\loginIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\blood-donation.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

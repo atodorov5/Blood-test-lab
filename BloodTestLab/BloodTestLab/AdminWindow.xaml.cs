@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using BloodTestLab.adminPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +26,21 @@ namespace BloodTestLab
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void AddLabAssistant(object sender, RoutedEventArgs e)
         {
             adminMainFrame.Content = new AddNewUser();
         }
+
+        private void AddTest(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new AddTest();
+        }
+        private void AddClinic(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new AddClinic();
+        }
+
+
+
     }
 }

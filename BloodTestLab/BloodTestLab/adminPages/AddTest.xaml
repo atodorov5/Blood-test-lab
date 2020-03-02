@@ -1,0 +1,50 @@
+﻿<Page x:Class="BloodTestLab.adminPages.AddTest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodTestLab.adminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="AddTest">
+
+
+
+    <Grid>
+        <Label Content="Добавяне на нов тест"  HorizontalContentAlignment="Center" FontSize="24" Margin="74,28,53,359"></Label>
+        <Label HorizontalContentAlignment="Right" Content="Име:" HorizontalAlignment="Left" Margin="74,96,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testNameTB" HorizontalAlignment="Left" Height="23" Margin="213,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Мин стойност:" HorizontalAlignment="Left" Margin="46,143,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
+        <TextBox Name="minValueTB" HorizontalAlignment="Left" Height="23" Margin="213,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Макс стойност:" HorizontalAlignment="Left" Margin="28,191,0,0" VerticalAlignment="Top" FontSize="16" Width="158"/>
+        <TextBox Name="maxValueTB" HorizontalAlignment="Left" Height="23" Margin="213,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Единица:" HorizontalAlignment="Left" Margin="74,239,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testUnitTB"  HorizontalAlignment="Left" Height="23" Margin="213,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Цена:" HorizontalAlignment="Left" Margin="74,282,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox  Name="priceTB"   HorizontalAlignment="Left" Height="23" Margin="213,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Button Click="addTestBtn" Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="229,331,0,0" VerticalAlignment="Top" Width="120" Height="44">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF6E6E"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ff7878"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        
+    </Grid>
+</Page>

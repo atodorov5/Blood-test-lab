@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BloodTestLab"
         mc:Ignorable="d"
-        Title="UserWindow" Height="500" Width="600">
-    <Grid>
-        
-    </Grid>
+        Title="Кръвна лаборатория 123" Height="500" Width="615"  Icon="/images/blood-donation.png">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="btv" />
+
+        <!-- style a top level menu item -->
+        <ControlTemplate x:Key="VsMenuTop" TargetType="MenuItem">
+            <StackPanel TextBlock.FontSize="15px" Height="40">
+                <!-- label, icons, etc. -->
+                <Label Content="{TemplateBinding Header}" Margin="5" Foreground="White" />
+
+                <!-- sub items -->
+                <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False">
+                    <Border BorderThickness="1" Background="White" BorderBrush="red">
+                        <StackPanel IsItemsHost="True" />
+                    </Border>
+                </Popup>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver"  Value="True">
+                                <Setter Property="Background" Value="DarkRed" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+            </StackPanel>
+        </ControlTemplate>
+
+        <!-- style a non-top level menu item -->
+        <ControlTemplate x:Key="VsMenuSub" TargetType="MenuItem">
+            <DockPanel TextBlock.FontSize="15px" x:Name="panel">
+                <!-- label, icons, etc. -->
+                <Image Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" Width="20" Margin="5,0" />
+                <Label Content="{TemplateBinding Header}" Foreground="Black" Margin="0,5,5,5" />
+
+
+                <!-- sub items -->
+                <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False" Placement="Right" >
+                    <Border BorderThickness="1" Background="White" BorderBrush="#E0E0E0">
+                        <StackPanel IsItemsHost="True" />
+                    </Border>
+                </Popup>
+            </DockPanel>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsHighlighted" Value="True">
+                    <Setter Property="Background" TargetName="panel" Value="#FFF1EB" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!-- some base stuff -->
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#FF6E6E" />
+            <Setter Property="Height" Value="40px" />
+        </Style>
+
+    </Window.Resources>
+
+    <!-- the real app and real menu -->
+    <StackPanel>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
+                <MenuItem Header="_Профил" Template="{StaticResource VsMenuSub}" />
+                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/fire-exit.png" />
+            </MenuItem>
+            <MenuItem Click="menuMakeTest"  Header="_Тест" Template="{StaticResource VsMenuTop}"/>
+            <MenuItem Header="Проверка на тест" Template="{StaticResource VsMenuTop}" />
+            <MenuItem Header="Даряване" Template="{StaticResource VsMenuTop}" />
+        </Menu>
+        <Frame Name="userMainFrame" Height="430" NavigationUIVisibility="Hidden"/>
+
+    </StackPanel>
 </Window>

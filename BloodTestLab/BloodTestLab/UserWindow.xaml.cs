@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using BloodTestLab.userPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +25,14 @@ namespace BloodTestLab
         {
             InitializeComponent();
         }
+
+           private void menuMakeTest(object sender, RoutedEventArgs e){
+        userMainFrame.Content = new makeTest();
     }
+
+    }
+
+ 
+
+
 }
