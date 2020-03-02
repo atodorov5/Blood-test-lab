@@ -67,11 +67,14 @@
     <StackPanel>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
-                <MenuItem Header="_Профил" Template="{StaticResource VsMenuSub}" />
-                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/fire-exit.png" />
+                <MenuItem Header="_Профил" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
+                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
             </MenuItem>
-            <MenuItem Click="menuMakeTest"  Header="_Тест" Template="{StaticResource VsMenuTop}"/>
-            <MenuItem Header="Проверка на тест" Template="{StaticResource VsMenuTop}" />
+            <MenuItem Header="_Тест" Template="{StaticResource VsMenuTop}">
+                <MenuItem Click="menuMakeTest" Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/newtest.png" />
+                <MenuItem Header="_Проверка на тест" Template="{StaticResource VsMenuSub}" Icon="images/checktest.png" />
+            </MenuItem>
+            <MenuItem Header="Регистрация на пациент" Template="{StaticResource VsMenuTop}" />
             <MenuItem Header="Даряване" Template="{StaticResource VsMenuTop}" />
         </Menu>
         <Frame Name="userMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

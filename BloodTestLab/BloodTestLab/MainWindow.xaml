@@ -11,11 +11,34 @@
     <Grid>
         <Label Content="Потребител:" HorizontalAlignment="Left" Margin="22,238,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Парола:" HorizontalAlignment="Left" Margin="55,274,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="username"  HorizontalAlignment="Left" Height="23" Margin="128,243,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178" FontSize="16"/>
+        <TextBox Name="usernameTB"  HorizontalAlignment="Left" Height="23" Margin="128,243,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178" FontSize="16"/>
         <PasswordBox Name="password" HorizontalAlignment="Left" Margin="128,282,0,0" VerticalAlignment="Top" Width="178" Height="23"/>
-        <Button  Background="#FF6E6E" Foreground="White" Content="Вход" HorizontalAlignment="Left" Margin="128,337,0,0" VerticalAlignment="Top" Width="75" FontSize="16" Click="Button_Click"/>
+       
         <Image Source="/images/loginIcon.png" HorizontalAlignment="Left" Height="191" Margin="81,10,0,0" VerticalAlignment="Top" Width="183"/>
-        <Label Name="loginError" Foreground="Red" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,378,0,0" VerticalAlignment="Top" Width="322" Height="31" FontWeight="Bold"/>
+        <Label Name="loginError" Foreground="#FF6E6E" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,378,0,0" VerticalAlignment="Top" Width="322" Height="31" FontWeight="Bold"/>
         <Label Content="Вход в системата" FontSize="15" Margin="111,201,95,179" />
+        <Button Content="Вход" FontSize="16" HorizontalAlignment="Left" Margin="111,334,0,0" VerticalAlignment="Top" Width="120" Height="44" Click="login">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF6E6E"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ff7878"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

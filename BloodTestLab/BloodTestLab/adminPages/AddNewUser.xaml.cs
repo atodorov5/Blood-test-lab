@@ -30,25 +30,48 @@ namespace BloodTestLab
 
         private void addUser(object sender, RoutedEventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("server=localhost;database=bloodlab;uid=root;pwd=root");
+            using (MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            {
+                String salt = CreateSalt(10);
+                String hashedpass = GenerateSHA256Hash(labPasswrdTB.Text, salt);
+                try
+                {
+                    conn.Open();
+                    // 1.  create a command object identifying the stored procedure
+                    MySqlCommand cmd = new MySqlCommand("addLabAssistant", conn);
 
-            MySqlCommand cmd = null;
-            string cmdString = "";
-            conn.Open();
+                    // 2. set the command object so it knows to execute a stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            String salt = CreateSalt(10);
-            String hashedpass = GenerateSHA256Hash(labPasswrdTB.Text, salt);
+                    // 3. add parameter to command, which will be passed to the stored procedure
+                    cmd.Parameters.Add(new MySqlParameter("p_labname", MySqlDbType.VarChar));
+                    cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_labLastName", MySqlDbType.VarChar));
+                    cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_username", MySqlDbType.VarChar));
+                    cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_hashedPaswrd", MySqlDbType.VarChar));
+                    cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_salt", MySqlDbType.VarChar));
+                    cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_clinic", MySqlDbType.VarChar));
+                    cmd.Parameters[5].Direction = System.Data.ParameterDirection.Input;
 
-            cmdString = "insert into labassistant(labName,labLastName,username,hashedPassWrd,salt,ClinicBranch_idClinicBranch) values('" + labNameTB.Text + "','" + labLastNameTB.Text +  "','" + labUsernameTB.Text+ "','" + hashedpass + "','" + salt + "','" + labCB.SelectedItem.ToString() + "')";
+                    cmd.Parameters[0].Value = labNameTB.Text;
+                    cmd.Parameters[1].Value = labLastNameTB.Text;
+                    cmd.Parameters[2].Value = labUsernameTB.Text;
+                    cmd.Parameters[3].Value = hashedpass;
+                    cmd.Parameters[4].Value = salt;
+                    cmd.Parameters[5].Value = labCB.Text;
 
-            cmd = new MySqlCommand(cmdString, conn);
+                    // execute the command
+                    cmd.ExecuteNonQuery();
+                } catch (MySqlException ex) {
+                    MessageBox.Show("Грешка "+ ex);
+                }
+                MessageBox.Show("Успешно добавен лаборант!");
 
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-            MessageBox.Show("Data Stored Successfully");
-
-
+            }
         }
 
         public void loadlabComboBox()
@@ -70,12 +93,8 @@ namespace BloodTestLab
                 category_data.Fill(ds, "clinicbranch");
 
                 labCB.DataContext = ds.Tables["clinicbranch"].DefaultView;
-                labCB.DisplayMemberPath = "idClinicBranch";
+               // labCB.DisplayMemberPath = "idClinicBranch";
                 labCB.DisplayMemberPath = "address";
-
-
-
-
             }
             catch (Exception ex)
             {

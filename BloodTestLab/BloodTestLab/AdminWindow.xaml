@@ -67,12 +67,12 @@
     <StackPanel>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
-                <MenuItem Header="_Exit" Template="{StaticResource VsMenuSub}" Icon="pictures/fire-exit.png" />
+                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
             </MenuItem>
             <MenuItem Header="_Добави" Template="{StaticResource VsMenuTop}">
-                <MenuItem Click="AddLabAssistant" Header="_Лаборант" Template="{StaticResource VsMenuSub}" />
-                <MenuItem Click="AddTest"  Header="_Нов тест" Template="{StaticResource VsMenuSub}" />
-                <MenuItem Click="AddClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" />
+                <MenuItem Click="AddLabAssistant" Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
+                <MenuItem Click="AddTest"  Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
+                <MenuItem Click="AddClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
             </MenuItem>
         </Menu>
         <Frame Name="adminMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

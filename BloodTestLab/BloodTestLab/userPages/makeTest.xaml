@@ -20,8 +20,26 @@
             </ListView.View>
         </ListView>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="370" Margin="254,10,0,0" VerticalAlignment="Top" Width="338">
-            <Label Content="Данни за пациент" Margin="0,0,0,0"/>
+            <Grid>
+                <Label Content="Данни за пациент" FontSize="16"/>
+                <Label Content="ЕГН:" FontSize="16" HorizontalAlignment="Left" Margin="15,31,0,0" VerticalAlignment="Top"/>
+                <TextBox FontSize="16" HorizontalAlignment="Left" Height="23" Margin="60,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+                <Button FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="230,39,0,0" VerticalAlignment="Top" Width="96"/>
+                <Label FontSize="16" Content="Име:" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top"/>
+                <TextBox FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+                <Label FontSize="16" Content="Фамилия:" HorizontalAlignment="Left" Margin="50,131,0,0" VerticalAlignment="Top"/>
+                <TextBox FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+                <GroupBox Header="Пол" HorizontalAlignment="Left" Margin="136,168,0,0" VerticalAlignment="Top" Width="165" Height="64">
+                    <StackPanel Margin="10,10,10,3" Orientation="Horizontal">
+                        <RadioButton Content="Мъж" Width="57" Margin="0,0,0,10" />
+                        <RadioButton Content="Жена" Margin="0,0,0,10"/>
+                    </StackPanel>
+                </GroupBox>
+                <Label FontSize="16"  Content="Кръвна група:" HorizontalAlignment="Left" Margin="15,243,0,0" VerticalAlignment="Top" Width="115"/>
+                <ComboBox Name="bloodTypeCB" ItemsSource="{Binding}"  HorizontalAlignment="Left" Margin="136,252,0,0" VerticalAlignment="Top" Width="165"/>
 
+
+            </Grid>
         </Border>
         <Button FontSize="16" Content="Тест" HorizontalAlignment="Left" Margin="515,390,0,0" VerticalAlignment="Top" Width="75"/>
 

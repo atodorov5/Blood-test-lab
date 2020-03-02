@@ -11,18 +11,18 @@
 
 
     <Grid>
-        <Label Content="Добавяне на нов тест"  HorizontalContentAlignment="Center" FontSize="24" Margin="74,28,53,359"></Label>
-        <Label HorizontalContentAlignment="Right" Content="Име:" HorizontalAlignment="Left" Margin="74,96,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox Name="testNameTB" HorizontalAlignment="Left" Height="23" Margin="213,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Мин стойност:" HorizontalAlignment="Left" Margin="46,143,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
-        <TextBox Name="minValueTB" HorizontalAlignment="Left" Height="23" Margin="213,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Макс стойност:" HorizontalAlignment="Left" Margin="28,191,0,0" VerticalAlignment="Top" FontSize="16" Width="158"/>
-        <TextBox Name="maxValueTB" HorizontalAlignment="Left" Height="23" Margin="213,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Единица:" HorizontalAlignment="Left" Margin="74,239,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox Name="testUnitTB"  HorizontalAlignment="Left" Height="23" Margin="213,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Цена:" HorizontalAlignment="Left" Margin="74,282,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox  Name="priceTB"   HorizontalAlignment="Left" Height="23" Margin="213,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Button Click="addTestBtn" Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="229,331,0,0" VerticalAlignment="Top" Width="120" Height="44">
+        <Label Content="Добавяне на нов тест"  HorizontalContentAlignment="Center" FontSize="24" Margin="89,22,53,365"></Label>
+        <Label HorizontalContentAlignment="Right" Content="Име:" HorizontalAlignment="Left" Margin="74,93,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testNameTB" HorizontalAlignment="Left" Height="23" Margin="213,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Мин стойност:" HorizontalAlignment="Left" Margin="46,137,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
+        <TextBox Name="minValueTB" HorizontalAlignment="Left" Height="23" Margin="213,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Макс стойност:" HorizontalAlignment="Left" Margin="28,185,0,0" VerticalAlignment="Top" FontSize="16" Width="158"/>
+        <TextBox Name="maxValueTB" HorizontalAlignment="Left" Height="23" Margin="213,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Единица:" HorizontalAlignment="Left" Margin="74,233,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testUnitTB"  HorizontalAlignment="Left" Height="23" Margin="213,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Цена:" HorizontalAlignment="Left" Margin="74,276,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox  Name="priceTB"   HorizontalAlignment="Left" Height="23" Margin="213,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Button Click="addTestBtn" Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="229,350,0,0" VerticalAlignment="Top" Width="120" Height="44">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#FF6E6E"/>
@@ -45,6 +45,6 @@
                 </Style>
             </Button.Style>
         </Button>
-        
+
     </Grid>
 </Page>
