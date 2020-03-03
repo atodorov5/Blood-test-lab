@@ -27,29 +27,7 @@ namespace BloodTestLab
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            String salt = CreateSalt(10);
-            String hashedpass = GenerateSHA256Hash(password.Password.ToString(), "top");
-            
-            if (usernameTB.Text == "nasko" && GenerateSHA256Hash(password.Password.ToString(), "top") == hashedpass)
-            {
-                UserWindow userW = new UserWindow();
-                userW.Show();
-               // this.Close();
-            }
-            else if(usernameTB.Text=="admin" && password.Password.ToString() == "admin")
-            {
-                AdminWindow adminW = new AdminWindow();
-                adminW.Show();
-               // this.Close();
-            }
-            else
-                loginError.Content = "Грешно потребителско име или парола!";
-        }
-
-
-
+       
         public String CreateSalt(int size)
         {
             var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
@@ -78,7 +56,7 @@ namespace BloodTestLab
                     {
                         AdminWindow adminW = new AdminWindow();
                         adminW.Show();
-                        // this.Close();
+                         this.Close();
                     }
                     else if (usernameTB.Text!=""){
 
@@ -107,7 +85,7 @@ namespace BloodTestLab
                         if (GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass){
                           UserWindow userW = new UserWindow();
                             userW.Show();
-                            // this.Close();
+                             this.Close();
                     }
                         else
                             loginError.Content = "Грешно потребителско име или парола!";

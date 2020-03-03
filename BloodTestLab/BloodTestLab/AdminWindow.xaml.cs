@@ -40,7 +40,11 @@ namespace BloodTestLab
             adminMainFrame.Content = new AddClinic();
         }
 
-
-
+        private void MenuItem_Logout(object sender, RoutedEventArgs e)
+        {
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
+        }
     }
 }

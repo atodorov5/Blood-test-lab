@@ -67,7 +67,7 @@
     <StackPanel>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
-                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
+                <MenuItem Click="MenuItem_Logout" Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
             </MenuItem>
             <MenuItem Header="_Добави" Template="{StaticResource VsMenuTop}">
                 <MenuItem Click="AddLabAssistant" Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />

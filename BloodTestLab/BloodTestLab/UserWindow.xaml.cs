@@ -30,6 +30,12 @@ namespace BloodTestLab
         userMainFrame.Content = new makeTest();
     }
 
+        private void MenuItem_Logout(object sender, RoutedEventArgs e)
+        {
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
+        }
     }
 
  

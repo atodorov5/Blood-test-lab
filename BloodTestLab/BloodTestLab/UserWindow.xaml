@@ -68,7 +68,7 @@
         <Menu IsMainMenu="True">
             <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
                 <MenuItem Header="_Профил" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
-                <MenuItem Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
+                <MenuItem Header="_Изход" Click="MenuItem_Logout" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
             </MenuItem>
             <MenuItem Header="_Тест" Template="{StaticResource VsMenuTop}">
                 <MenuItem Click="menuMakeTest" Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/newtest.png" />
