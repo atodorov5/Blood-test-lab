@@ -15,7 +15,7 @@ namespace BloodTestLab
             InitializeComponent();
         }
 
-        private void menuMakeTest(object sender, RoutedEventArgs e){
+        private void MenuItem_MakeTest(object sender, RoutedEventArgs e){
         userMainFrame.Content = new makeTest();
     }
 
@@ -24,6 +24,16 @@ namespace BloodTestLab
             MainWindow login = new MainWindow();
             login.Show();
             this.Close();
+        }
+
+        private void MenuItem_Checktest(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new checkTest();
+        }
+
+        private void MenuItem_ProfileInfo(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new ProfileInfo();
         }
     }
 

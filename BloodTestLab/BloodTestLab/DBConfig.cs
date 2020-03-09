@@ -30,7 +30,7 @@ namespace BloodTestLab
         {
             var db = new MySqlConnection(conf);
 
-            db.Open();
+            //db.Open();
             return db;
         }
 

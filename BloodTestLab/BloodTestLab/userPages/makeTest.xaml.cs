@@ -12,8 +12,8 @@ namespace BloodTestLab.userPages
     /// Interaction logic for makeTest.xaml
     /// </summary>
     public partial class makeTest : Page
-    {   
-      
+    {
+
         public makeTest()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace BloodTestLab.userPages
             {
                 MySqlCommand sql_cmd = conn.CreateCommand();
                 sql_cmd.CommandText = "SELECT idTestType,testtype.name FROM testtype";
-                MySqlDataAdapter DB = new MySqlDataAdapter(sql_cmd.CommandText, conn);              
+                MySqlDataAdapter DB = new MySqlDataAdapter(sql_cmd.CommandText, conn);
                 DataTable dt = new DataTable();
                 DB.Fill(dt);
                 testList.ItemsSource = dt.DefaultView;
@@ -71,10 +71,10 @@ namespace BloodTestLab.userPages
         {
             nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1;
             using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
-            {                
+            {
                 try
                 {
-                    conn.Open();                    
+                    conn.Open();
                     MySqlCommand cmd = new MySqlCommand("checkPatient", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new MySqlParameter("p_pin", MySqlDbType.VarChar));
@@ -88,29 +88,30 @@ namespace BloodTestLab.userPages
                     cmd.Parameters.Add(new MySqlParameter("o_bloodType", MySqlDbType.Int32));
                     cmd.Parameters[4].Direction = System.Data.ParameterDirection.Output;
                     cmd.Parameters[0].Value = pinTB.Text;
-                    
- 
+
+
                     // execute the command
-                  int a = cmd.ExecuteNonQuery();
-                    if (a==1)
+                    int a = cmd.ExecuteNonQuery();
+                    if (a == 1)
                     {
                         nameTB.Text = (string)cmd.Parameters["o_name"].Value;
                         lastnameTB.Text = (string)cmd.Parameters["o_lastname"].Value;
-                        if (Convert.ToBoolean( cmd.Parameters["o_sex"].Value))
+                        if (Convert.ToBoolean(cmd.Parameters["o_sex"].Value))
                             femaleRB.IsChecked = true;
                         else
                             maleRB.IsChecked = true;
-                        bloodTypeCB.SelectedIndex = (int)cmd.Parameters["o_bloodType"].Value-1;
-                        
+                        bloodTypeCB.SelectedIndex = (int)cmd.Parameters["o_bloodType"].Value - 1;
+
                     }
                     else
                         MessageBox.Show("Добявете пациент!");
 
                 }
-                catch (MySqlException ex) {
+                catch (MySqlException ex)
+                {
                     MessageBox.Show("Грешка " + ex);
                 }
-                
+
             }
         }
 
@@ -141,7 +142,7 @@ namespace BloodTestLab.userPages
                 {
                     MySqlCommand cmd = new MySqlCommand("insertTest", conn);
                     cmd.Transaction = transaction;
-                    
+
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
                     cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
@@ -174,25 +175,26 @@ namespace BloodTestLab.userPages
 
                     MySqlCommand cmd2 = new MySqlCommand("insertResult", conn);
                     cmd2.CommandType = CommandType.StoredProcedure;
-                        cmd2.Parameters.Add(new MySqlParameter("p_value", MySqlDbType.Double));
-                        cmd2.Parameters[0].Direction = System.Data.ParameterDirection.Input;
-                        cmd2.Parameters.Add(new MySqlParameter("p_idTest", MySqlDbType.Int32));
-                        cmd2.Parameters[1].Direction = System.Data.ParameterDirection.Input;
-                        cmd2.Parameters.Add(new MySqlParameter("p_idTestType", MySqlDbType.Int32));
-                        cmd2.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+                    cmd2.Parameters.Add(new MySqlParameter("p_value", MySqlDbType.Double));
+                    cmd2.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                    cmd2.Parameters.Add(new MySqlParameter("p_idTest", MySqlDbType.Int32));
+                    cmd2.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                    cmd2.Parameters.Add(new MySqlParameter("p_idTestType", MySqlDbType.Int32));
+                    cmd2.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+
+                    BloodTestMachine machine = new BloodTestMachine();
 
                     foreach (DataRowView item in testList.SelectedItems)
                     {
-                        cmd2.Parameters["p_value"].Value = 0.5;
+                        cmd2.Parameters["p_value"].Value = BloodTestMachine.analyse((int)item["idTestType"]);
                         cmd2.Parameters["p_idTest"].Value = testId;
                         cmd2.Parameters["p_idTestType"].Value = item["idTestType"];
- 
                         cmd2.ExecuteNonQuery();
-                        
+
                     }
 
                     transaction.Commit();
-                    MessageBox.Show("Успешно направен тест!");
+                    MessageBox.Show("Успешно направен тест! Дължима сума: "+ calculatePrice(testId));
 
                 }
                 catch (MySqlException ex)
@@ -207,6 +209,31 @@ namespace BloodTestLab.userPages
 
 
         }
+
+
+        private double calculatePrice(int testID)
+        {
+            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("calcPrice", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new MySqlParameter("p_testID", MySqlDbType.VarChar));
+                    cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("o_total", MySqlDbType.Double));
+                    cmd.Parameters[1].Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters[0].Value = testID;
+                    cmd.ExecuteNonQuery();
+                    return (double)cmd.Parameters["o_total"].Value;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Грешка " + ex);
+                    return 0;
+                }
+            }
+        }
     }
-    
 }
