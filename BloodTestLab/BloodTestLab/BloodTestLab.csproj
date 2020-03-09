@@ -68,6 +68,8 @@
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DBConfig.cs" />
+    <Compile Include="UserInfo.cs" />
     <Compile Include="userPages\makeTest.xaml.cs">
       <DependentUpon>makeTest.xaml</DependentUpon>
     </Compile>

@@ -74,7 +74,7 @@
                 <MenuItem Click="menuMakeTest" Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/newtest.png" />
                 <MenuItem Header="_Проверка на тест" Template="{StaticResource VsMenuSub}" Icon="images/checktest.png" />
             </MenuItem>
-            <MenuItem Header="Регистрация на пациент" Template="{StaticResource VsMenuTop}" />
+           
             <MenuItem Header="Даряване" Template="{StaticResource VsMenuTop}" />
         </Menu>
         <Frame Name="userMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

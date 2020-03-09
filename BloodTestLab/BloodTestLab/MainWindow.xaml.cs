@@ -1,19 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BloodTestLab
 {
@@ -75,17 +63,20 @@ namespace BloodTestLab
                         cmd.Parameters[1].Direction = System.Data.ParameterDirection.Output;
                         cmd.Parameters.Add(new MySqlParameter("o_hashedPass", MySqlDbType.VarChar));
                         cmd.Parameters[2].Direction = System.Data.ParameterDirection.Output;
+                        cmd.Parameters.Add(new MySqlParameter("o_id", MySqlDbType.Int32));
+                        cmd.Parameters[3].Direction = System.Data.ParameterDirection.Output;
                         cmd.Parameters[0].Value = usernameTB.Text;
                         cmd.ExecuteReader(); // execute the command
                        
                             salt = (string)cmd.Parameters["o_salt"].Value;
                             hashedpass = (string)cmd.Parameters["o_hashedPass"].Value;
-                       
+                            //int usrID = (int)cmd.Parameters["o_id"].Value;
 
                         if (GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass){
-                          UserWindow userW = new UserWindow();
+                            GlobalInfo.CurrentUser = new UserInfo((int)cmd.Parameters["o_id"].Value);
+                            UserWindow userW = new UserWindow();
                             userW.Show();
-                             this.Close();
+                            this.Close();
                     }
                         else
                             loginError.Content = "Грешно потребителско име или парола!";

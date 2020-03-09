@@ -77,8 +77,8 @@ namespace BloodTestLab
         public void loadlabComboBox()
         {
             labCB.Items.Clear();
-            MySqlConnection con = new MySqlConnection("server=localhost;database=bloodlab;uid=root;pwd=root");
-            try
+            MySqlConnection con = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;");
+                try
             {
                 con.Open();
             }

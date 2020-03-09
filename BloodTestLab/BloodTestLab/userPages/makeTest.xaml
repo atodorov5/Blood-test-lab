@@ -10,12 +10,16 @@
 
 
     <Grid>
-        <ListView Name="testList" HorizontalAlignment="Left" Height="370" Margin="8,10,0,0" VerticalAlignment="Top" Width="237">
+        <ListView Name="testList" ItemsSource="{Binding}" SelectionMode="Multiple" HorizontalAlignment="Left" Height="340" Margin="8,10,0,0" VerticalAlignment="Top" Width="237">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Избор на тест" >
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=idTestType}" Header="№" >
 
                     </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=name}" Header="Избор на тест" >
+
+                    </GridViewColumn>
+                    
                 </GridView>
             </ListView.View>
         </ListView>
@@ -23,25 +27,26 @@
             <Grid>
                 <Label Content="Данни за пациент" FontSize="16"/>
                 <Label Content="ЕГН:" FontSize="16" HorizontalAlignment="Left" Margin="15,61,0,0" VerticalAlignment="Top"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Height="23" Margin="60,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-                <Button FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="230,69,0,0" VerticalAlignment="Top" Width="96"/>
+                <TextBox Name="pinTB" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="60,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+                <Button Click="checkPatient" FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="230,69,0,0" VerticalAlignment="Top" Width="96"/>
                 <Label FontSize="16" Content="Име:" HorizontalAlignment="Left" Margin="85,118,0,0" VerticalAlignment="Top"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                <TextBox Name="nameTB" FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
                 <Label FontSize="16" Content="Фамилия:" HorizontalAlignment="Left" Margin="50,154,0,0" VerticalAlignment="Top"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                <TextBox Name="lastnameTB" FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
                 <GroupBox Header="Пол" FontSize="16" HorizontalAlignment="Left" Margin="136,198,0,0" VerticalAlignment="Top" Width="190" Height="80">
                     <StackPanel Margin="10,10,10,3" Orientation="Horizontal">
-                        <RadioButton VerticalContentAlignment="Center" FontSize="16" Content="Мъж" Width="57" Margin="0,0,0,10" />
-                        <RadioButton VerticalContentAlignment="Center" FontSize="16" Content="Жена" Margin="10,0,0,10"/>
+                        <RadioButton Name="maleRB" VerticalContentAlignment="Center" FontSize="16" Content="Мъж" Width="57" Margin="0,0,0,10" />
+                        <RadioButton Name="femaleRB" VerticalContentAlignment="Center" FontSize="16" Content="Жена" Margin="10,0,0,10"/>
                     </StackPanel>
                 </GroupBox>
                 <Label FontSize="16"  Content="Кръвна група:" HorizontalAlignment="Left" Margin="15,292,0,0" VerticalAlignment="Top" Width="115"/>
-                <ComboBox FontSize="16" Name="bloodTypeCB" ItemsSource="{Binding}"  HorizontalAlignment="Left" Margin="136,296,0,0" VerticalAlignment="Top" Width="190"/>
+                <ComboBox SelectedValuePath="Content" FontSize="16" Name="bloodTypeCB" ItemsSource="{Binding}"  HorizontalAlignment="Left" Margin="136,296,0,0" VerticalAlignment="Top" Width="190"/>
 
 
             </Grid>
         </Border>
-        <Button FontSize="16" Content="Тест" HorizontalAlignment="Left" Margin="515,390,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Click="testBtn" FontSize="16" Content="Тест" HorizontalAlignment="Left" Margin="515,390,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Почисти избрани" Click="clearSelected" FontSize="16"  HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="235"/>
 
     </Grid>
 </Page>
