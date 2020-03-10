@@ -9,18 +9,18 @@
       Title="ProfileInfo">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="217" Margin="31,31,0,0" VerticalAlignment="Top" Width="212"  Source="/images/nurse.png" />
-        <Label Content="Потребителско име:" HorizontalAlignment="Left" Margin="268,33,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Име:" HorizontalAlignment="Left" Margin="268,64,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="268,96,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="usrnameL" Content="" HorizontalAlignment="Left" Margin="432,33,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.638,1.161"/>
-        <Label Name="nameL"  Content="" HorizontalAlignment="Left" Margin="318,64,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Name="lastNameL" Content="" HorizontalAlignment="Left" Margin="353,96,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Клиника:" HorizontalAlignment="Left" Margin="268,132,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="" Name="clinicLicenseL" HorizontalAlignment="Left" Margin="343,132,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="" Name="clinictownL" HorizontalAlignment="Left" Margin="343,163,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="" Name="clinicaddressL"  HorizontalAlignment="Left" Margin="343,194,0,0" VerticalAlignment="Top" FontSize="16"/>
-    
+        <Image HorizontalAlignment="Left" Height="216" Margin="58,98,0,0" VerticalAlignment="Top" Width="212"  Source="/images/profileInfo.png" />
+        <Label Content="Потребителско име:" HorizontalAlignment="Left" Margin="296,100,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Име:" HorizontalAlignment="Left" Margin="296,130,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="296,162,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Name="usrnameL" Content="" HorizontalAlignment="Left" Margin="460,100,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-1.638,1.161"/>
+        <Label Name="nameL"  Content="" HorizontalAlignment="Left" Margin="344,130,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="lastNameL" Content="" HorizontalAlignment="Left" Margin="383,162,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Клиника №:" HorizontalAlignment="Left" Margin="296,198,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="" Name="clinicLicenseL" HorizontalAlignment="Left" Margin="407,198,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="" Name="clinictownL" HorizontalAlignment="Left" Margin="407,234,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="" Name="clinicaddressL"  HorizontalAlignment="Left" Margin="407,270,0,0" VerticalAlignment="Top" FontSize="16"/>
+
 
     </Grid>
 </Page>

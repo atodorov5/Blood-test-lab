@@ -35,9 +35,11 @@ namespace BloodTestLab
         {
             userMainFrame.Content = new ProfileInfo();
         }
+
+        private void MenuItem_Donation(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new Donation();
+        }
+
     }
-
- 
-
-
 }

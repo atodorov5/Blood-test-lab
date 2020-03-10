@@ -35,7 +35,7 @@ namespace BloodTestLab
         private void login(object sender, RoutedEventArgs e)
         {
             string salt="", hashedpass="";
-            using (MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 try
                 {

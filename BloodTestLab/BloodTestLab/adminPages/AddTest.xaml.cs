@@ -37,7 +37,7 @@ namespace BloodTestLab.adminPages
 
         private void addTestBtn(object sender, RoutedEventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
 
                 conn.Open();

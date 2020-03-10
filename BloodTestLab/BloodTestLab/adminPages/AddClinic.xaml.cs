@@ -35,7 +35,7 @@ namespace BloodTestLab.adminPages
 
             try
             {
-                using (var connection = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+                using (var connection = DBConfig.Connection)
                 {
 
                     connection.Open();

@@ -24,7 +24,7 @@ namespace BloodTestLab.userPages
         public void bloodTypeCBLoad()
         {
             bloodTypeCB.Items.Clear();
-            MySqlConnection con = new MySqlConnection("server=localhost;database=bloodlab;uid=root;pwd=root");
+            var con = DBConfig.Connection;
             try
             {
                 con.Open();
@@ -56,7 +56,7 @@ namespace BloodTestLab.userPages
 
         private void loadTestsInListView()
         {
-            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 MySqlCommand sql_cmd = conn.CreateCommand();
                 sql_cmd.CommandText = "SELECT idTestType,testtype.name FROM testtype";
@@ -70,7 +70,7 @@ namespace BloodTestLab.userPages
         private void checkPatient(object sender, RoutedEventArgs e)
         {
             nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1;
-            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 try
                 {
@@ -133,7 +133,7 @@ namespace BloodTestLab.userPages
                  MessageBox.Show(item + Environment.NewLine);
              }
  */         int testId;
-            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 MySqlTransaction transaction;
                 conn.Open();

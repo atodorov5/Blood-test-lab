@@ -9,14 +9,17 @@
       Title="checkTest">
 
     <Grid>
-        <Label Content="ЕГН:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="55,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16"/>
-        <Button Content="Проверка" HorizontalAlignment="Left" Margin="216,13,0,0" VerticalAlignment="Top" Width="98" FontSize="16"/>
-        <Label  Content="Тест:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" FontSize="16"/>
-
-        <Label Content="Резултати:" HorizontalAlignment="Left" Margin="216,46,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <DataGrid HorizontalAlignment="Left" Margin="216,77,0,0" VerticalAlignment="Top" Height="274" Width="374" FontSize="16"/>
-        <DataGrid HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="338" Width="201" FontSize="16"/>
+        <Label Content="ЕГН:" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="pinTB" HorizontalAlignment="Left" Height="25" Margin="55,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16"/>
+        <Button Content="Проверка" Click="checkTestsByPin" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="201" FontSize="16"/>
+        <DataGrid Name="resultDG" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="293" Width="580" FontSize="16" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
+        <DataGrid Name="testsDG" HorizontalAlignment="Left" Margin="216,13,0,0" VerticalAlignment="Top" Height="106" Width="374" FontSize="16"  RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="resultCheck"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
 
 
     </Grid>

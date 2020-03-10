@@ -32,14 +32,20 @@ namespace BloodTestLab.userPages
 
         private void loadInfo()
         {
-            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
-                /*MySqlCommand sql_cmd = conn.CreateCommand();
-                sql_cmd.CommandText = "SELECT * FROM labassistant join test on ClinicBranch_idClinicBranch=idClinicBranch;";
+                MySqlCommand sql_cmd = conn.CreateCommand();
+                sql_cmd.CommandText = "SELECT * FROM labassistant join clinicbranch on ClinicBranch_idClinicBranch=idClinicBranch;";
                 MySqlDataAdapter DB = new MySqlDataAdapter(sql_cmd.CommandText, conn);
                 DataTable dt = new DataTable();
-                DB.Fill(dt);*/
-              
+                DB.Fill(dt);
+                usrnameL.Content = dt.Rows[0]["username"].ToString();
+                nameL.Content = dt.Rows[0]["labName"].ToString();
+                lastNameL.Content = dt.Rows[0]["labLastName"].ToString();
+                clinicLicenseL.Content = dt.Rows[0]["license"].ToString();
+                clinictownL.Content = dt.Rows[0]["town"].ToString();
+                clinicaddressL.Content = dt.Rows[0]["address"].ToString();
+                
             }
         }
     }

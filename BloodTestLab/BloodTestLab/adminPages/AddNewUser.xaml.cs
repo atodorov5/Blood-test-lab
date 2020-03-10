@@ -30,7 +30,7 @@ namespace BloodTestLab
 
         private void addUser(object sender, RoutedEventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 String salt = CreateSalt(10);
                 String hashedpass = GenerateSHA256Hash(labPasswrdTB.Text, salt);
@@ -77,7 +77,7 @@ namespace BloodTestLab
         public void loadlabComboBox()
         {
             labCB.Items.Clear();
-            MySqlConnection con = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;");
+            var con = DBConfig.Connection;
                 try
             {
                 con.Open();

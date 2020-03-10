@@ -74,6 +74,9 @@
     <Compile Include="userPages\checkTest.xaml.cs">
       <DependentUpon>checkTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userPages\Donation.xaml.cs">
+      <DependentUpon>Donation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userPages\makeTest.xaml.cs">
       <DependentUpon>makeTest.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="userPages\checkTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userPages\Donation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +181,9 @@
   <ItemGroup>
     <Resource Include="images\checktest.png" />
     <Resource Include="images\newtest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\profileInfo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
