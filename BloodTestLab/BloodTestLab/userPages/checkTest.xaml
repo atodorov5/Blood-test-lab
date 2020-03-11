@@ -7,20 +7,47 @@
       mc:Ignorable="d" 
       d:DesignHeight="425" d:DesignWidth="600"
       Title="checkTest">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF6E6E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ff7878"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
 
     <Grid>
-        <Label Content="ЕГН:" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="pinTB" HorizontalAlignment="Left" Height="25" Margin="55,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16"/>
-        <Button Content="Проверка" Click="checkTestsByPin" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="201" FontSize="16"/>
-        <DataGrid Name="resultDG" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="293" Width="580" FontSize="16" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
-        <DataGrid Name="testsDG" HorizontalAlignment="Left" Margin="216,13,0,0" VerticalAlignment="Top" Height="106" Width="374" FontSize="16"  RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="433*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ЕГН:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.225,0.484"/>
+        <TextBox Name="pinTB" HorizontalAlignment="Left" Height="25" Margin="55,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button Content="Проверка" Click="checkTestsByPin" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="201" FontSize="16" Grid.ColumnSpan="2" Height="34"/>
+        <DataGrid Name="resultDG" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Height="254" Width="580" FontSize="16" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <DataGrid Name="testsDG" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Height="146" Width="222" FontSize="16"  RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True" Grid.Column="1">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="resultCheck"/>
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-
+        <Label Content="Пациент:" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="name" Content="" HorizontalAlignment="Left" Margin="86,83,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Name="lastName" Content="" HorizontalAlignment="Left" Margin="86,114,0,0" VerticalAlignment="Top" FontSize="16"/>
 
     </Grid>
 </Page>

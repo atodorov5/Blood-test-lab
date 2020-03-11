@@ -41,5 +41,9 @@ namespace BloodTestLab
             userMainFrame.Content = new Donation();
         }
 
+        private void MenuItem_DonationRef(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new donationrReference();
+        }
     }
 }

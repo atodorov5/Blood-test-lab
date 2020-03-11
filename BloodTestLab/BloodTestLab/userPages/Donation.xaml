@@ -7,7 +7,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="425" d:DesignWidth="600"
       Title="Donation">
-
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF6E6E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ff7878"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
 
         <Grid Margin="10,0,10,10">
@@ -22,7 +42,7 @@
             <Label Content="Данни за донор" FontSize="16" Margin="10,0,238,207" Grid.ColumnSpan="2"/>
             <Label Content="ЕГН:" FontSize="16" HorizontalAlignment="Left" Margin="121,38,0,0" VerticalAlignment="Top"/>
             <TextBox Name="pinTB" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="166,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.ColumnSpan="2"/>
-            <Button Click="checkPatient" FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1"/>
+            <Button Click="checkPatient" FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1" Height="25"/>
             <Label FontSize="16" Content="Име:" HorizontalAlignment="Left" Margin="115,92,0,0" VerticalAlignment="Top"/>
             <TextBox Name="nameTB" FontSize="16" HorizontalAlignment="Left" Height="22" Margin="166,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Grid.ColumnSpan="2"/>
             <Label FontSize="16" Content="Фамилия:" HorizontalAlignment="Left" Margin="80,128,0,0" VerticalAlignment="Top"/>

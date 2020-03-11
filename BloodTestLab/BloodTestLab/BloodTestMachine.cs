@@ -30,7 +30,10 @@ namespace BloodTestLab
                     cmd.ExecuteNonQuery();
 
                     Random random = new Random();
-                    return random.NextDouble() * (((double)cmd.Parameters["o_maxValue"].Value+10) - ((double)cmd.Parameters["o_minValue"].Value-10)) + ((double)cmd.Parameters["o_minValue"].Value-10);
+                    double k = (double)cmd.Parameters["o_minValue"].Value / 2;
+                    double max = (double)cmd.Parameters["o_maxValue"].Value;
+                    double min = (double)cmd.Parameters["o_minValue"].Value;
+                    return Math.Round( random.NextDouble() * ((max+k) - (min-k)) + (min-k),2);
                     
                 }
                 catch (MySqlException ex)

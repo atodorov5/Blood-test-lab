@@ -108,6 +108,7 @@ namespace BloodTestLab.userPages
 
         private void donateBtn(object sender, RoutedEventArgs e)
         {
+           
             using (var conn = DBConfig.Connection)
             {
                 MySqlTransaction transaction;
@@ -159,6 +160,7 @@ namespace BloodTestLab.userPages
                 }
 
             }
+            nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; destinationTB.Clear(); pinTB.Clear();
         }
     }
 }

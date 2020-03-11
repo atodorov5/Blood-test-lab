@@ -133,6 +133,7 @@ namespace BloodTestLab.userPages
                  MessageBox.Show(item + Environment.NewLine);
              }
  */         int testId;
+ 
             using (var conn = DBConfig.Connection)
             {
                 MySqlTransaction transaction;
@@ -202,12 +203,8 @@ namespace BloodTestLab.userPages
                     transaction.Rollback();
                     MessageBox.Show("Грешка " + ex);
                 }
-
             }
-
-
-
-
+            nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; pinTB.Clear(); testList.UnselectAll();
         }
 
 

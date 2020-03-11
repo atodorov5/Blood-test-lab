@@ -7,7 +7,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="425" d:DesignWidth="600"
       Title="makeTest">
-
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF6E6E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ff7878"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <ListView Name="testList" ItemsSource="{Binding}" SelectionMode="Multiple" HorizontalAlignment="Left" Height="340" Margin="8,10,0,0" VerticalAlignment="Top" Width="237">
