@@ -40,7 +40,7 @@ namespace BloodTestLab
                 try
                 {
 
-                    if (usernameTB.Text == "admin" && password.Password.ToString() == "admin")
+                    if (usernameTB.Text == "aa" && password.Password.ToString() == "aa")
                     {
                         AdminWindow adminW = new AdminWindow();
                         adminW.Show();

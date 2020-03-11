@@ -60,19 +60,21 @@
             <Setter Property="Background" Value="#FF6E6E" />
             <Setter Property="Height" Value="40px" />
         </Style>
-
     </Window.Resources>
 
     <!-- the real app and real menu -->
     <StackPanel>
         <Menu IsMainMenu="True">
-            <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
-                <MenuItem Click="MenuItem_Logout" Header="_Изход" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
-            </MenuItem>
-            <MenuItem Header="_Добави" Template="{StaticResource VsMenuTop}">
+            <MenuItem  Click="MenuItem_Logout" Header="_Изход" Template="{StaticResource VsMenuTop}" />
+            <MenuItem Header="_Добавяне" Template="{StaticResource VsMenuTop}">
                 <MenuItem Click="AddLabAssistant" Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
                 <MenuItem Click="AddTest"  Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
                 <MenuItem Click="AddClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
+            </MenuItem>
+            <MenuItem Header="_Премахване" Template="{StaticResource VsMenuTop}">
+                <MenuItem Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
+                <MenuItem Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
+                <MenuItem Click="MenuItem_RemoveClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
             </MenuItem>
         </Menu>
         <Frame Name="adminMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

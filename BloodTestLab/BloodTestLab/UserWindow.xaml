@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BloodTestLab"
         mc:Ignorable="d"
-        Title="Кръвна лаборатория 123" Height="500" Width="615"  Icon="/images/blood-donation.png">
+        Title="Кръвна лаборатория 'Ани'" Height="500" Width="615"  Icon="/images/blood-donation.png">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="btv" />
 

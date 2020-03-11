@@ -1,0 +1,17 @@
+﻿<Page x:Class="BloodTestLab.adminPages.removeClinic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodTestLab.adminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="600"
+      Title="removeClinic">
+
+    <Grid>
+        <Label FontSize="16" Content="Премахване на клон на клиника" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid ItemsSource="{Binding}" Name="clinicDG" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="244" Width="auto" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
+        <Button Click="Button_removeClinic" Content="Премахни" HorizontalAlignment="Left" Margin="460,390,0,0" VerticalAlignment="Top" Width="108" FontSize="16"/>
+
+    </Grid>
+</Page>

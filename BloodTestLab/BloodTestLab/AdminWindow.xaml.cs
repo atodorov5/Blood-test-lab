@@ -46,5 +46,10 @@ namespace BloodTestLab
             login.Show();
             this.Close();
         }
+
+        private void MenuItem_RemoveClinic(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new removeClinic();
+        }
     }
 }
