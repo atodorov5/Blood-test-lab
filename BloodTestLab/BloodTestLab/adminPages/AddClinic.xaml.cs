@@ -33,35 +33,40 @@ namespace BloodTestLab.adminPages
             string address = addressTB.Text;
             string license = licenseTB.Text;
 
-            try
+            if (town == "" || address == "" || license == "")
+                MessageBox.Show("Въведете данни!");
+            else
             {
-                using (var connection = DBConfig.Connection)
+                try
                 {
-
-                    connection.Open();
-
-             
-                    var sqlCommand = "INSERT INTO clinicbranch (town,address,license) VALUES (@town1,@address1,@license1)";
-
-
-                    using (var command = new MySqlCommand(sqlCommand, connection))
+                    using (var connection = DBConfig.Connection)
                     {
-                        command.Parameters.Add("@town1", MySqlDbType.VarChar).Value = town;
-                        command.Parameters.Add("@address1", MySqlDbType.VarChar).Value = address;
-                        command.Parameters.Add("@license1", MySqlDbType.VarChar).Value = license;
 
-                        command.ExecuteNonQuery();
+                        connection.Open();
+
+
+                        var sqlCommand = "INSERT INTO clinicbranch (town,address,license) VALUES (@town1,@address1,@license1)";
+
+
+                        using (var command = new MySqlCommand(sqlCommand, connection))
+                        {
+                            command.Parameters.Add("@town1", MySqlDbType.VarChar).Value = town;
+                            command.Parameters.Add("@address1", MySqlDbType.VarChar).Value = address;
+                            command.Parameters.Add("@license1", MySqlDbType.VarChar).Value = license;
+
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                        MessageBox.Show("Успешно добавена клиника!");
+                        addressTB.Clear();
+                        licenseTB.Clear();
+                        townTB.Clear();
                     }
-                    connection.Close();
-                    MessageBox.Show("Успешно добавена клиника!");
-                    addressTB.Clear();
-                    licenseTB.Clear();
-                    townTB.Clear();
                 }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error Message: " + ex.Message);
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error Message: " + ex.Message);
+                }
             }
 
         }

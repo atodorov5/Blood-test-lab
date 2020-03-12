@@ -15,23 +15,6 @@ namespace BloodTestLab
             InitializeComponent();
         }
 
-       
-        public String CreateSalt(int size)
-        {
-            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-            var buff = new byte[size];
-            rng.GetBytes(buff);
-            return Convert.ToBase64String(buff);
-        }
-
-        public String GenerateSHA256Hash(String input,String salt)
-        {
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sha256hashsring = new System.Security.Cryptography.SHA256Managed();
-            byte[] hash = sha256hashsring.ComputeHash(bytes);
-            return Convert.ToBase64String(hash);
-        }
-
         private void login(object sender, RoutedEventArgs e)
         {
             string salt="", hashedpass="";
@@ -71,8 +54,7 @@ namespace BloodTestLab
                             salt = (string)cmd.Parameters["o_salt"].Value;
                             hashedpass = (string)cmd.Parameters["o_hashedPass"].Value;
                             //int usrID = (int)cmd.Parameters["o_id"].Value;
-
-                        if (GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass){
+                        if (Password.GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass){
                             GlobalInfo.CurrentUser = new UserInfo((int)cmd.Parameters["o_id"].Value);
                             UserWindow userW = new UserWindow();
                             userW.Show();

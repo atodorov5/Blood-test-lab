@@ -68,11 +68,15 @@
     <Compile Include="adminPages\removeClinic.xaml.cs">
       <DependentUpon>removeClinic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="adminPages\RemoveTest.xaml.cs">
+      <DependentUpon>RemoveTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BloodTestMachine.cs" />
     <Compile Include="DBConfig.cs" />
+    <Compile Include="Password.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="userPages\checkTest.xaml.cs">
       <DependentUpon>checkTest.xaml</DependentUpon>
@@ -105,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="adminPages\removeClinic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\RemoveTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

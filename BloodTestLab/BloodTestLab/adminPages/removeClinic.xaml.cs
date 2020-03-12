@@ -1,20 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BloodTestLab.adminPages
 {
@@ -50,8 +37,9 @@ namespace BloodTestLab.adminPages
         private void Button_removeClinic(object sender, RoutedEventArgs e)
         {
             DataRowView rowview = clinicDG.SelectedItem as DataRowView;
-          
-            using (var conn = DBConfig.Connection)
+            if (rowview != null)
+            {
+                using (var conn = DBConfig.Connection)
             {
                 try
                 {
@@ -74,7 +62,9 @@ namespace BloodTestLab.adminPages
                 
                 loadClinics();
             }
-            
+            }
+            else
+                MessageBox.Show("Изберете клиника");
         }
     }
 }

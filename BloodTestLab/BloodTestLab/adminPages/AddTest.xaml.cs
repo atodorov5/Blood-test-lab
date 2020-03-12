@@ -37,44 +37,44 @@ namespace BloodTestLab.adminPages
 
         private void addTestBtn(object sender, RoutedEventArgs e)
         {
-            using (var conn = DBConfig.Connection)
+            if (String.IsNullOrEmpty(testNameTB.Text) || String.IsNullOrEmpty(minValueTB.Text) || String.IsNullOrEmpty(maxValueTB.Text) || String.IsNullOrEmpty(testUnitTB.Text) || String.IsNullOrEmpty(priceTB.Text))
+                MessageBox.Show("Въведете данни!");
+            else
             {
+                using (var conn = DBConfig.Connection)
+                {
 
-                conn.Open();
-                // 1.  create a command object identifying the stored procedure
-                MySqlCommand cmd = new MySqlCommand("addTestType", conn);
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("addTestType", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
+                    cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_minV", MySqlDbType.Double));
+                    cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_maxV", MySqlDbType.Double));
+                    cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_unit", MySqlDbType.VarChar));
+                    cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
+                    cmd.Parameters.Add(new MySqlParameter("p_price", MySqlDbType.Double));
+                    cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
 
-                // 2. set the command object so it knows to execute a stored procedure
-                cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters[0].Value = testNameTB.Text;
+                    cmd.Parameters[1].Value = Convert.ToDouble(minValueTB.Text);
+                    cmd.Parameters[2].Value = Convert.ToDouble(maxValueTB.Text);
+                    cmd.Parameters[3].Value = testUnitTB.Text;
+                    cmd.Parameters[4].Value = Convert.ToDouble(priceTB.Text);
 
-                // 3. add parameter to command, which will be passed to the stored procedure
-                cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
-                cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add(new MySqlParameter("p_minV", MySqlDbType.Double));
-                cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add(new MySqlParameter("p_maxV", MySqlDbType.Double));
-                cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add(new MySqlParameter("p_unit", MySqlDbType.VarChar));
-                cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add(new MySqlParameter("p_price", MySqlDbType.Double));
-                cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
+                    cmd.ExecuteNonQuery();
 
-                cmd.Parameters[0].Value = testNameTB.Text;
-                cmd.Parameters[1].Value = Convert.ToDouble( minValueTB.Text);
-                cmd.Parameters[2].Value = Convert.ToDouble(maxValueTB.Text);
-                cmd.Parameters[3].Value = testUnitTB.Text;
-                cmd.Parameters[4].Value = Convert.ToDouble(priceTB.Text);
+                    MessageBox.Show("Успешно!");
+                    testNameTB.Clear();
+                    minValueTB.Clear();
+                    maxValueTB.Clear();
+                    testUnitTB.Clear();
+                    priceTB.Clear();
 
-                // execute the command
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Успешно!");
-                testNameTB.Clear();
-                minValueTB.Clear();
-                maxValueTB.Clear();
-                testUnitTB.Clear();
-                priceTB.Clear();
-                
+                }
             }
         }
     }

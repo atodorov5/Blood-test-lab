@@ -51,5 +51,11 @@ namespace BloodTestLab
         {
             adminMainFrame.Content = new removeClinic();
         }
+
+        private void MenuItem_RemoveTest(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new RemoveTest();
+        }
+
     }
 }

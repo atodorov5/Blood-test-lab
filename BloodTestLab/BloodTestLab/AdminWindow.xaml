@@ -72,9 +72,13 @@
                 <MenuItem Click="AddClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
             </MenuItem>
             <MenuItem Header="_Премахване" Template="{StaticResource VsMenuTop}">
-                <MenuItem Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
-                <MenuItem Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
+                <MenuItem Click="MenuItem_RemoveTest" Header="_Тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
                 <MenuItem Click="MenuItem_RemoveClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
+            </MenuItem>
+            <MenuItem Header="_Промяна" Template="{StaticResource VsMenuTop}">
+                <MenuItem Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
+                <MenuItem  Header="_Тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
+                <MenuItem  Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
             </MenuItem>
         </Menu>
         <Frame Name="adminMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

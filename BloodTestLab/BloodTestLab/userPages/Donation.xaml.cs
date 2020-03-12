@@ -108,59 +108,63 @@ namespace BloodTestLab.userPages
 
         private void donateBtn(object sender, RoutedEventArgs e)
         {
-           
-            using (var conn = DBConfig.Connection)
+            if (!String.IsNullOrEmpty(pinTB.Text))
             {
-                MySqlTransaction transaction;
-                conn.Open();
-                transaction = conn.BeginTransaction();
-                try
+                using (var conn = DBConfig.Connection)
                 {
-                    MySqlCommand cmd = new MySqlCommand("insertDonation", conn);
-                    cmd.Transaction = transaction;
+                    MySqlTransaction transaction;
+                    conn.Open();
+                    transaction = conn.BeginTransaction();
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand("insertDonation", conn);
+                        cmd.Transaction = transaction;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
-                    cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_lastName", MySqlDbType.VarChar));
-                    cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_pin", MySqlDbType.VarChar));
-                    cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add("p_sex", MySqlDbType.Bit, 1);
-                    cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_bloodType", MySqlDbType.Int32));
-                    cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_LabAssistantID", MySqlDbType.Int32));
-                    cmd.Parameters[5].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_destination", MySqlDbType.VarChar));
-                    cmd.Parameters[6].Direction = System.Data.ParameterDirection.Input;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
+                        cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_lastName", MySqlDbType.VarChar));
+                        cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_pin", MySqlDbType.VarChar));
+                        cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add("p_sex", MySqlDbType.Bit, 1);
+                        cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_bloodType", MySqlDbType.Int32));
+                        cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_LabAssistantID", MySqlDbType.Int32));
+                        cmd.Parameters[5].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_destination", MySqlDbType.VarChar));
+                        cmd.Parameters[6].Direction = System.Data.ParameterDirection.Input;
 
-                    cmd.Parameters[0].Value = nameTB.Text;
-                    cmd.Parameters[1].Value = lastnameTB.Text;
-                    cmd.Parameters[2].Value = pinTB.Text;
-                    if (femaleRB.IsChecked == true)
-                        cmd.Parameters[3].Value = true;
-                    else
-                        cmd.Parameters[3].Value = false;
-                    cmd.Parameters[4].Value = bloodTypeCB.SelectedIndex + 1;
-                    UserInfo userInfo = GlobalInfo.CurrentUser;
-                    cmd.Parameters[5].Value = userInfo.UserID;
-                    cmd.Parameters[6].Value = destinationTB.Text;
-                    cmd.ExecuteNonQuery();
-                    transaction.Commit();
-                    MessageBox.Show("Успешно записано даряване!");
+                        cmd.Parameters[0].Value = nameTB.Text;
+                        cmd.Parameters[1].Value = lastnameTB.Text;
+                        cmd.Parameters[2].Value = pinTB.Text;
+                        if (femaleRB.IsChecked == true)
+                            cmd.Parameters[3].Value = true;
+                        else
+                            cmd.Parameters[3].Value = false;
+                        cmd.Parameters[4].Value = bloodTypeCB.SelectedIndex + 1;
+                        UserInfo userInfo = GlobalInfo.CurrentUser;
+                        cmd.Parameters[5].Value = userInfo.UserID;
+                        cmd.Parameters[6].Value = destinationTB.Text;
+                        cmd.ExecuteNonQuery();
+                        transaction.Commit();
+                        MessageBox.Show("Успешно записано даряване!");
 
 
+
+                    }
+                    catch (MySqlException ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Грешка " + ex);
+                    }
 
                 }
-                catch (MySqlException ex)
-                {
-                    transaction.Rollback();
-                    MessageBox.Show("Грешка " + ex);
-                }
-
+                nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; destinationTB.Clear(); pinTB.Clear();
             }
-            nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; destinationTB.Clear(); pinTB.Clear();
+            else
+                MessageBox.Show("Въведете данни!");
         }
     }
 }

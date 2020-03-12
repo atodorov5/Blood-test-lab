@@ -133,78 +133,83 @@ namespace BloodTestLab.userPages
                  MessageBox.Show(item + Environment.NewLine);
              }
  */         int testId;
- 
-            using (var conn = DBConfig.Connection)
+            if (!String.IsNullOrEmpty(pinTB.Text))
             {
-                MySqlTransaction transaction;
-                conn.Open();
-                transaction = conn.BeginTransaction();
-                try
+
+                using (var conn = DBConfig.Connection)
                 {
-                    MySqlCommand cmd = new MySqlCommand("insertTest", conn);
-                    cmd.Transaction = transaction;
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
-                    cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_lastName", MySqlDbType.VarChar));
-                    cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_pin", MySqlDbType.VarChar));
-                    cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add("p_sex", MySqlDbType.Bit, 1);
-                    cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_bloodType", MySqlDbType.Int32));
-                    cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("p_LabAssistantID", MySqlDbType.Int32));
-                    cmd.Parameters[5].Direction = System.Data.ParameterDirection.Input;
-                    cmd.Parameters.Add(new MySqlParameter("o_testid", MySqlDbType.Int32));
-                    cmd.Parameters[6].Direction = System.Data.ParameterDirection.Output;
-
-                    cmd.Parameters[0].Value = nameTB.Text;
-                    cmd.Parameters[1].Value = lastnameTB.Text;
-                    cmd.Parameters[2].Value = pinTB.Text;
-                    if (femaleRB.IsChecked == true)
-                        cmd.Parameters[3].Value = true;
-                    else
-                        cmd.Parameters[3].Value = false;
-                    cmd.Parameters[4].Value = bloodTypeCB.SelectedIndex + 1;
-                    UserInfo userInfo = GlobalInfo.CurrentUser;
-                    cmd.Parameters[5].Value = userInfo.UserID;
-
-                    cmd.ExecuteNonQuery();
-                    testId = (int)cmd.Parameters["o_testid"].Value;
-
-                    MySqlCommand cmd2 = new MySqlCommand("insertResult", conn);
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Parameters.Add(new MySqlParameter("p_value", MySqlDbType.Double));
-                    cmd2.Parameters[0].Direction = System.Data.ParameterDirection.Input;
-                    cmd2.Parameters.Add(new MySqlParameter("p_idTest", MySqlDbType.Int32));
-                    cmd2.Parameters[1].Direction = System.Data.ParameterDirection.Input;
-                    cmd2.Parameters.Add(new MySqlParameter("p_idTestType", MySqlDbType.Int32));
-                    cmd2.Parameters[2].Direction = System.Data.ParameterDirection.Input;
-
-                    BloodTestMachine machine = new BloodTestMachine();
-
-                    foreach (DataRowView item in testList.SelectedItems)
+                    MySqlTransaction transaction;
+                    conn.Open();
+                    transaction = conn.BeginTransaction();
+                    try
                     {
-                        cmd2.Parameters["p_value"].Value = BloodTestMachine.analyse((int)item["idTestType"]);
-                        cmd2.Parameters["p_idTest"].Value = testId;
-                        cmd2.Parameters["p_idTestType"].Value = item["idTestType"];
-                        cmd2.ExecuteNonQuery();
+                        MySqlCommand cmd = new MySqlCommand("insertTest", conn);
+                        cmd.Transaction = transaction;
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new MySqlParameter("p_name", MySqlDbType.VarChar));
+                        cmd.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_lastName", MySqlDbType.VarChar));
+                        cmd.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_pin", MySqlDbType.VarChar));
+                        cmd.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add("p_sex", MySqlDbType.Bit, 1);
+                        cmd.Parameters[3].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_bloodType", MySqlDbType.Int32));
+                        cmd.Parameters[4].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("p_LabAssistantID", MySqlDbType.Int32));
+                        cmd.Parameters[5].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.Add(new MySqlParameter("o_testid", MySqlDbType.Int32));
+                        cmd.Parameters[6].Direction = System.Data.ParameterDirection.Output;
+
+                        cmd.Parameters[0].Value = nameTB.Text;
+                        cmd.Parameters[1].Value = lastnameTB.Text;
+                        cmd.Parameters[2].Value = pinTB.Text;
+                        if (femaleRB.IsChecked == true)
+                            cmd.Parameters[3].Value = true;
+                        else
+                            cmd.Parameters[3].Value = false;
+                        cmd.Parameters[4].Value = bloodTypeCB.SelectedIndex + 1;
+                        UserInfo userInfo = GlobalInfo.CurrentUser;
+                        cmd.Parameters[5].Value = userInfo.UserID;
+
+                        cmd.ExecuteNonQuery();
+                        testId = (int)cmd.Parameters["o_testid"].Value;
+
+                        MySqlCommand cmd2 = new MySqlCommand("insertResult", conn);
+                        cmd2.CommandType = CommandType.StoredProcedure;
+                        cmd2.Parameters.Add(new MySqlParameter("p_value", MySqlDbType.Double));
+                        cmd2.Parameters[0].Direction = System.Data.ParameterDirection.Input;
+                        cmd2.Parameters.Add(new MySqlParameter("p_idTest", MySqlDbType.Int32));
+                        cmd2.Parameters[1].Direction = System.Data.ParameterDirection.Input;
+                        cmd2.Parameters.Add(new MySqlParameter("p_idTestType", MySqlDbType.Int32));
+                        cmd2.Parameters[2].Direction = System.Data.ParameterDirection.Input;
+
+                        BloodTestMachine machine = new BloodTestMachine();
+
+                        foreach (DataRowView item in testList.SelectedItems)
+                        {
+                            cmd2.Parameters["p_value"].Value = BloodTestMachine.analyse((int)item["idTestType"]);
+                            cmd2.Parameters["p_idTest"].Value = testId;
+                            cmd2.Parameters["p_idTestType"].Value = item["idTestType"];
+                            cmd2.ExecuteNonQuery();
+
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("Успешно направен тест! Дължима сума: " + calculatePrice(testId));
 
                     }
-
-                    transaction.Commit();
-                    MessageBox.Show("Успешно направен тест! Дължима сума: "+ calculatePrice(testId));
-
+                    catch (MySqlException ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Грешка " + ex);
+                    }
                 }
-                catch (MySqlException ex)
-                {
-                    transaction.Rollback();
-                    MessageBox.Show("Грешка " + ex);
-                }
+                nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; pinTB.Clear(); testList.UnselectAll();
             }
-            nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; pinTB.Clear(); testList.UnselectAll();
+            else
+                MessageBox.Show("Въведете ЕГН!");
         }
 
 
