@@ -19,7 +19,7 @@
         <Label HorizontalContentAlignment="Right" Content="Лиценз:" HorizontalAlignment="Left" Margin="46,185,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
         <TextBox Name="licenseTB" HorizontalAlignment="Left" Height="23" Margin="213,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
 
-        <Button Click="addClinicBranchBtn"  Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="229,350,0,0" VerticalAlignment="Top" Width="120" Height="44">
+        <Button Click="addClinicBranchBtn"  Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="245,350,0,0" VerticalAlignment="Top" Width="120" Height="44">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#FF6E6E"/>

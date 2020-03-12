@@ -71,6 +71,12 @@
     <Compile Include="adminPages\RemoveTest.xaml.cs">
       <DependentUpon>RemoveTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="adminPages\UpdateClinic.xaml.cs">
+      <DependentUpon>UpdateClinic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="adminPages\UpdateTestType.xaml.cs">
+      <DependentUpon>UpdateTestType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +119,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="adminPages\RemoveTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\UpdateClinic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\UpdateTestType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

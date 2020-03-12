@@ -21,7 +21,7 @@
         <Label Content="Парола:" HorizontalAlignment="Left" Margin="117,233,0,0" VerticalAlignment="Top" FontSize="16" Width="69"/>
         <TextBox Name="labPasswrdTB" HorizontalAlignment="Left" Height="23" Margin="213,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
         <Label FontSize="16" Content="Лаборатория:" HorizontalAlignment="Left" Margin="75,280,0,0" VerticalAlignment="Top"/>
-        <Button Click="addUser" Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="229,350,0,0" VerticalAlignment="Top" Width="120" Height="44">
+        <Button Click="addUser" Content="Създаване" FontSize="16" HorizontalAlignment="Left" Margin="245,350,0,0" VerticalAlignment="Top" Width="120" Height="44">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="#FF6E6E"/>

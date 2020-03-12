@@ -82,7 +82,6 @@ namespace BloodTestLab
                 MySqlDataAdapter category_data = new MySqlDataAdapter("SELECT * FROM clinicbranch", con);
                 DataSet ds = new DataSet();
                 category_data.Fill(ds, "clinicbranch");
-
                 labCB.DataContext = ds.Tables["clinicbranch"].DefaultView;
                // labCB.DisplayMemberPath = "idClinicBranch";
                 labCB.DisplayMemberPath = "address";

@@ -26,16 +26,16 @@ namespace BloodTestLab
             InitializeComponent();
         }
 
-        private void AddLabAssistant(object sender, RoutedEventArgs e)
+        private void MenuItem_AddLabAssistant(object sender, RoutedEventArgs e)
         {
             adminMainFrame.Content = new AddNewUser();
         }
 
-        private void AddTest(object sender, RoutedEventArgs e)
+        private void MenuItem_AddTest(object sender, RoutedEventArgs e)
         {
             adminMainFrame.Content = new AddTest();
         }
-        private void AddClinic(object sender, RoutedEventArgs e)
+        private void MenuItem_AddClinic(object sender, RoutedEventArgs e)
         {
             adminMainFrame.Content = new AddClinic();
         }
@@ -57,5 +57,13 @@ namespace BloodTestLab
             adminMainFrame.Content = new RemoveTest();
         }
 
+        private void MenuItem_UpdateClinic(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new UpdateClinic();
+        }
+        private void MenuItem_UpdateTestType(object sender, RoutedEventArgs e)
+        {
+            adminMainFrame.Content = new UpdateTestType();
+        }
     }
 }

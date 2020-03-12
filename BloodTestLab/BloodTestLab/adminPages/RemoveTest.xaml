@@ -29,9 +29,9 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <Label FontSize="16" Content="Премахване на клон на Тест" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <DataGrid ItemsSource="{Binding}" Name="testDG" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="244" Width="auto" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
-        <Button Click="Button_RemoveTest" Content="Премахни" HorizontalAlignment="Left" Margin="483,381,0,0" VerticalAlignment="Top" Width="93" Height="34" FontSize="16"/>
+        <Label FontSize="24" Content="Премахване на клон на Тест" HorizontalContentAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Width="600"/>
+        <DataGrid ItemsSource="{Binding}" Name="testDG" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Height="250" Width="auto" RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
+        <Button Click="Button_RemoveTest" Content="Премахни" FontSize="16" HorizontalAlignment="Left" Margin="245,350,0,0" VerticalAlignment="Top" Width="120" Height="44"/>
 
     </Grid>
 </Page>

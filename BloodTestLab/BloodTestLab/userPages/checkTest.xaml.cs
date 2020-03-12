@@ -69,8 +69,8 @@ namespace BloodTestLab.userPages
         {
             
              DataRowView rowview = testsDG.SelectedItem as DataRowView;
-            // MessageBox.Show(rowview.Row[0].ToString());
             loadResults((int)rowview.Row[0]);
+
             /*
              var newMyWindow2 = new Result("Your id name: "+rowview.Row[1].ToString());
              newMyWindow2.Show();

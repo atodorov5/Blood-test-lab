@@ -25,20 +25,12 @@ namespace BloodTestLab.userPages
         {
             bloodTypeCB.Items.Clear();
             var con = DBConfig.Connection;
+
             try
-            {
-                con.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            try
-            {
+            {   con.Open();
                 MySqlDataAdapter category_data = new MySqlDataAdapter("SELECT * FROM bloodtype", con);
                 DataSet ds = new DataSet();
                 category_data.Fill(ds, "bloodtype");
-
                 bloodTypeCB.DataContext = ds.Tables["bloodtype"].DefaultView;
                 // labCB.DisplayMemberPath = "idClinicBranch";
                 bloodTypeCB.DisplayMemberPath = "typeOfBlood";
