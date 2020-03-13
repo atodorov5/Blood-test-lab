@@ -68,6 +68,7 @@
         <Menu IsMainMenu="True">
             <MenuItem Header="_Меню" Template="{StaticResource VsMenuTop}" >
                 <MenuItem Click="MenuItem_ProfileInfo" Header="_Профил" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
+                <MenuItem Click="MenuItem_PasswordUpdate" Header="_Нова парола" Template="{StaticResource VsMenuSub}" Icon="images/editpassword.png" />
                 <MenuItem Header="_Изход" Click="MenuItem_Logout" Template="{StaticResource VsMenuSub}" Icon="images/log-out.png" />
             </MenuItem>
             <MenuItem Header="_Тест" Template="{StaticResource VsMenuTop}">

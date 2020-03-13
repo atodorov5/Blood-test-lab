@@ -61,6 +61,7 @@ namespace BloodTestLab
                         MessageBox.Show("Грешка " + ex);
                     }
                     MessageBox.Show("Успешно добавен лаборант!");
+                    labNameTB.Clear(); labLastNameTB.Clear(); labUsernameTB.Clear(); labPasswrdTB.Clear(); labCB.SelectedIndex = -1;
                 }
             }
         }

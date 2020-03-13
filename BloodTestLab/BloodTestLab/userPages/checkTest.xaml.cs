@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.ComponentModel;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,6 +43,7 @@ namespace BloodTestLab.userPages
                     testsDG.ItemsSource = dt.DefaultView;
                     testsDG.Columns[2].Visibility = Visibility.Collapsed;
                     testsDG.Columns[3].Visibility = Visibility.Collapsed;
+                        SortDataGrid(testsDG);
                     if (dt.Rows.Count > 0)
                     {
                         name.Content = dt.Rows[0]["name"].ToString();
@@ -70,26 +72,6 @@ namespace BloodTestLab.userPages
             
              DataRowView rowview = testsDG.SelectedItem as DataRowView;
             loadResults((int)rowview.Row[0]);
-
-            /*
-             var newMyWindow2 = new Result("Your id name: "+rowview.Row[1].ToString());
-             newMyWindow2.Show();
-            //RABOTI
-
-           
-
-
-
-            // Some operations with this row
-            /*
-                        DataRowView dataRowView = (DataRowView)dt.SelectedItem;
-                         int ID = Convert.ToInt32(dataRowView.Row[0]);
-
-                      DataGridRow row = (DataGridRow)sender;
-                        DataRow dr = (DataRow)row.DataContext;
-
-                        string value = dr[1].ToString();
-                        MessageBox.Show(value);*/
         }
 
         private void loadResults(int testId)
@@ -141,6 +123,19 @@ namespace BloodTestLab.userPages
             }
         }
 
+
+        public static void SortDataGrid(DataGrid dataGrid, int columnIndex = 1, ListSortDirection sortDirection = ListSortDirection.Descending)
+        {
+            var column = dataGrid.Columns[columnIndex];
+            dataGrid.Items.SortDescriptions.Clear();
+            dataGrid.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, sortDirection));
+            foreach (var col in dataGrid.Columns)
+            {
+                col.SortDirection = null;
+            }
+            column.SortDirection = sortDirection;
+            dataGrid.Items.Refresh();
+        }
 
     }
 }

@@ -45,5 +45,9 @@ namespace BloodTestLab
         {
             userMainFrame.Content = new donationrReference();
         }
+        private void MenuItem_PasswordUpdate(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new EditPassword();
+        }
     }
 }

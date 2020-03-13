@@ -34,8 +34,9 @@ namespace BloodTestLab.userPages
         {
             using (var conn = DBConfig.Connection)
             {
+                UserInfo userInfo = GlobalInfo.CurrentUser;
                 MySqlCommand sql_cmd = conn.CreateCommand();
-                sql_cmd.CommandText = "SELECT * FROM labassistant join clinicbranch on ClinicBranch_idClinicBranch=idClinicBranch;";
+                sql_cmd.CommandText = "SELECT * FROM labassistant join clinicbranch on ClinicBranch_idClinicBranch=idClinicBranch where idLabAssistant='"+userInfo.UserID+"';";
                 MySqlDataAdapter DB = new MySqlDataAdapter(sql_cmd.CommandText, conn);
                 DataTable dt = new DataTable();
                 DB.Fill(dt);

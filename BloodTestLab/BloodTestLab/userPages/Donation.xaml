@@ -57,30 +57,7 @@
             <ComboBox SelectedValuePath="Content" FontSize="16" Name="bloodTypeCB" ItemsSource="{Binding}"  HorizontalAlignment="Left" Margin="166,21,0,0" VerticalAlignment="Top" Width="281" Grid.Row="1" Grid.ColumnSpan="2"/>
             <Label Content="Дестинация:" HorizontalAlignment="Left" Margin="60,60,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
             <TextBox Name="destinationTB" HorizontalAlignment="Left" Height="23" Margin="166,68,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" FontSize="16" Grid.ColumnSpan="2"/>
-            <Button Click="donateBtn" FontSize="16" Content="Запази" HorizontalAlignment="Left" Margin="188,123,0,0" VerticalAlignment="Top" Width="93" Height="34" Grid.Column="1" Grid.Row="1">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="#FF6E6E"/>
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#ff7878"/>
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-
+            <Button Click="donateBtn" FontSize="16" Content="Запази" HorizontalAlignment="Left" Margin="188,123,0,0" VerticalAlignment="Top" Width="93" Height="34" Grid.Column="1" Grid.Row="1"/>
 
         </Grid>
 
