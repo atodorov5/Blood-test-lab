@@ -24,20 +24,23 @@ namespace BloodTestLab.userPages
         public void bloodTypeCBLoad()
         {
             bloodTypeCB.Items.Clear();
-            var con = DBConfig.Connection;
-
-            try
-            {   con.Open();
-                MySqlDataAdapter category_data = new MySqlDataAdapter("SELECT * FROM bloodtype", con);
-                DataSet ds = new DataSet();
-                category_data.Fill(ds, "bloodtype");
-                bloodTypeCB.DataContext = ds.Tables["bloodtype"].DefaultView;
-                // labCB.DisplayMemberPath = "idClinicBranch";
-                bloodTypeCB.DisplayMemberPath = "typeOfBlood";
-            }
-            catch (Exception ex)
+            using (var con = DBConfig.Connection)
             {
-                MessageBox.Show(ex.ToString());
+
+                try
+                {
+                    con.Open();
+                    MySqlDataAdapter category_data = new MySqlDataAdapter("SELECT * FROM bloodtype", con);
+                    DataSet ds = new DataSet();
+                    category_data.Fill(ds, "bloodtype");
+                    bloodTypeCB.DataContext = ds.Tables["bloodtype"].DefaultView;
+                    // labCB.DisplayMemberPath = "idClinicBranch";
+                    bloodTypeCB.DisplayMemberPath = "typeOfBlood";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
@@ -189,6 +192,7 @@ namespace BloodTestLab.userPages
                         }
 
                         transaction.Commit();
+                        conn.Close();
                         MessageBox.Show("Успешно направен тест! Дължима сума: " + calculatePrice(testId));
 
                     }
@@ -207,7 +211,7 @@ namespace BloodTestLab.userPages
 
         private double calculatePrice(int testID)
         {
-            using (var conn = new MySqlConnection("server=localhost;user id=root;password=root;database=bloodlab;"))
+            using (var conn = DBConfig.Connection)
             {
                 try
                 {

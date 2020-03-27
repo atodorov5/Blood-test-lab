@@ -13,6 +13,8 @@ namespace BloodTestLab
         public UserWindow()
         {
             InitializeComponent();
+            userMainFrame.Content = new makeTest();
+
         }
 
         private void MenuItem_MakeTest(object sender, RoutedEventArgs e){
@@ -48,6 +50,11 @@ namespace BloodTestLab
         private void MenuItem_PasswordUpdate(object sender, RoutedEventArgs e)
         {
             userMainFrame.Content = new EditPassword();
+        }
+
+        private void MenuItem_DonationPeriod(object sender, RoutedEventArgs e)
+        {
+            userMainFrame.Content = new DonationPeriod();
         }
     }
 }

@@ -53,19 +53,24 @@ namespace BloodTestLab
                        
                             salt = (string)cmd.Parameters["o_salt"].Value;
                             hashedpass = (string)cmd.Parameters["o_hashedPass"].Value;
-                            //int usrID = (int)cmd.Parameters["o_id"].Value;
-                        if (Password.GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass){
+                        //int usrID = (int)cmd.Parameters["o_id"].Value;
+                        conn.Close();
+                        if (Password.GenerateSHA256Hash(password.Password.ToString(), salt) == hashedpass)
+                        {
                             GlobalInfo.CurrentUser = new UserInfo((int)cmd.Parameters["o_id"].Value);
                             UserWindow userW = new UserWindow();
                             userW.Show();
                             this.Close();
-                    }
+                        }
                         else
+                        {
                             loginError.Content = "Грешно потребителско име или парола!";
+                        }
  
                     }
                     else
                         loginError.Content = "Грешно потребителско име или парола!";
+                    
 
                 }
                 catch (MySqlException ex)

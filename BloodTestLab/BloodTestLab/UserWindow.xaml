@@ -78,7 +78,8 @@
 
             <MenuItem Header="Даряване" Template="{StaticResource VsMenuTop}">
                 <MenuItem Click="MenuItem_Donation" Header="_Даряване" Template="{StaticResource VsMenuSub}" Icon="images/treatment.png" />
-                <MenuItem Click="MenuItem_DonationRef"  Header="_Справка за даряване" Template="{StaticResource VsMenuSub}" Icon="images/medical-certificate.png" />
+                <MenuItem Click="MenuItem_DonationRef"  Header="_Дарявания на пациент" Template="{StaticResource VsMenuSub}" Icon="images/medical-certificate.png" />
+                <MenuItem Click="MenuItem_DonationPeriod" Header="_Дарявания за период" Template="{StaticResource VsMenuSub}" Icon="images/donationPeriod.png" />
             </MenuItem>
         </Menu>
         <Frame Name="userMainFrame" Height="430" NavigationUIVisibility="Hidden"/>

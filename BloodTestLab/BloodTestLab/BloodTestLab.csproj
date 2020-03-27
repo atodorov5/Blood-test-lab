@@ -90,6 +90,9 @@
     <Compile Include="userPages\Donation.xaml.cs">
       <DependentUpon>Donation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userPages\DonationPeriod.xaml.cs">
+      <DependentUpon>DonationPeriod.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userPages\DonationReference.xaml.cs">
       <DependentUpon>DonationReference.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userPages\Donation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userPages\DonationPeriod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\editpassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\donationPeriod.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

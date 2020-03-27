@@ -65,7 +65,7 @@
     <!-- the real app and real menu -->
     <StackPanel>
         <Menu IsMainMenu="True">
-            <MenuItem  Click="MenuItem_Logout" Header="_Изход" Template="{StaticResource VsMenuTop}" />
+
             <MenuItem Header="_Добавяне" Template="{StaticResource VsMenuTop}">
                 <MenuItem Click="MenuItem_AddLabAssistant" Header="_Лаборант" Template="{StaticResource VsMenuSub}" Icon="images/nurse.png" />
                 <MenuItem Click="MenuItem_AddTest"  Header="_Нов тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
@@ -79,6 +79,7 @@
                 <MenuItem Click="MenuItem_UpdateTestType" Header="_Тест" Template="{StaticResource VsMenuSub}" Icon="images/test-tubes.png" />
                 <MenuItem Click="MenuItem_UpdateClinic" Header="_Клиника" Template="{StaticResource VsMenuSub}" Icon="images/hospital.png"/>
             </MenuItem>
+            <MenuItem  Click="MenuItem_Logout" Header="_Изход" Template="{StaticResource VsMenuTop}" />
         </Menu>
         <Frame Name="adminMainFrame" Height="430" NavigationUIVisibility="Hidden"/>
         
