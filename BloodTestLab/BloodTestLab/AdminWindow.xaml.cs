@@ -24,6 +24,7 @@ namespace BloodTestLab
         public AdminWindow()
         {
             InitializeComponent();
+            adminMainFrame.Content = new welcome();
         }
 
         private void MenuItem_AddLabAssistant(object sender, RoutedEventArgs e)

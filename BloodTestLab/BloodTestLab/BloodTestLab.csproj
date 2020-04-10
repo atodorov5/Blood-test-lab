@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BloodTestLab</RootNamespace>
-    <AssemblyName>BloodTestLab</AssemblyName>
+    <AssemblyName>Клиника Ани</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>appicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="adminPages\UpdateTestType.xaml.cs">
       <DependentUpon>UpdateTestType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="adminPages\welcome.xaml.cs">
+      <DependentUpon>welcome.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -133,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="adminPages\UpdateTestType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="adminPages\welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +257,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\donationPeriod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hnet.com-image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bloodicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="appicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

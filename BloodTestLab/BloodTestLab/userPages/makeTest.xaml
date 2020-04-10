@@ -48,7 +48,7 @@
                 <Label Content="Данни за пациент" FontSize="16"/>
                 <Label Content="ЕГН:" FontSize="16" HorizontalAlignment="Left" Margin="15,61,0,0" VerticalAlignment="Top"/>
                 <TextBox Name="pinTB" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="60,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-                <Button Click="checkPatient" FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="230,69,0,0" VerticalAlignment="Top" Width="96"/>
+                <Button Click="checkPatient" FontSize="16" Content="Проверка" HorizontalAlignment="Left" Margin="230,69,0,0" VerticalAlignment="Top" Width="96" Height="23"/>
                 <Label FontSize="16" Content="Име:" HorizontalAlignment="Left" Margin="85,118,0,0" VerticalAlignment="Top"/>
                 <TextBox Name="nameTB" FontSize="16" HorizontalAlignment="Left" Height="22" Margin="136,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
                 <Label FontSize="16" Content="Фамилия:" HorizontalAlignment="Left" Margin="50,154,0,0" VerticalAlignment="Top"/>
@@ -66,7 +66,7 @@
             </Grid>
         </Border>
         <Button Click="testBtn" FontSize="16" Content="Тест" HorizontalAlignment="Left" Margin="515,390,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Почисти избрани" Click="clearSelected" FontSize="16"  HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="235"/>
+        <Button Content="Почисти избрани" Click="clearSelected" FontSize="16"  HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="235" Height="25"/>
 
     </Grid>
 </Page>

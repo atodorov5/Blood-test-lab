@@ -30,18 +30,18 @@
     </Page.Resources>
     <Grid>
         <Label Content="Редактиране на тест"  HorizontalContentAlignment="Center" FontSize="24" Margin="0,22,0,365"></Label>
-        <Label HorizontalContentAlignment="Right" Content="Име:" HorizontalAlignment="Left" Margin="74,192,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox Name="testNameTB" HorizontalAlignment="Left" Height="23" Margin="191,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Мин стойност:" HorizontalAlignment="Left" Margin="46,220,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
-        <TextBox Name="minValueTB" HorizontalAlignment="Left" Height="23" Margin="191,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Макс стойност:" HorizontalAlignment="Left" Margin="28,248,0,0" VerticalAlignment="Top" FontSize="16" Width="158"/>
-        <TextBox Name="maxValueTB" HorizontalAlignment="Left" Height="23" Margin="191,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Единица:" HorizontalAlignment="Left" Margin="74,276,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox Name="testUnitTB"  HorizontalAlignment="Left" Height="23" Margin="191,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
-        <Label HorizontalContentAlignment="Right" Content="Цена:" HorizontalAlignment="Left" Margin="74,304,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
-        <TextBox  Name="priceTB"   HorizontalAlignment="Left" Height="23" Margin="191,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Име:" HorizontalAlignment="Left" Margin="74,203,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testNameTB" HorizontalAlignment="Left" Height="23" Margin="191,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Мин стойност:" HorizontalAlignment="Left" Margin="46,231,0,0" VerticalAlignment="Top" FontSize="16" Width="140"/>
+        <TextBox Name="minValueTB" HorizontalAlignment="Left" Height="23" Margin="191,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Макс стойност:" HorizontalAlignment="Left" Margin="28,259,0,0" VerticalAlignment="Top" FontSize="16" Width="158"/>
+        <TextBox Name="maxValueTB" HorizontalAlignment="Left" Height="23" Margin="191,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Единица:" HorizontalAlignment="Left" Margin="74,287,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox Name="testUnitTB"  HorizontalAlignment="Left" Height="23" Margin="191,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
+        <Label HorizontalContentAlignment="Right" Content="Цена:" HorizontalAlignment="Left" Margin="74,315,0,0" VerticalAlignment="Top" FontSize="16" Width="112"/>
+        <TextBox  Name="priceTB"   HorizontalAlignment="Left" Height="23" Margin="191,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="16"/>
         <Button Content="Редактирай" Click="Button_UpdateTestType" FontSize="16" HorizontalAlignment="Left" Margin="245,350,0,0" VerticalAlignment="Top" Width="120" Height="44"/>
-        <DataGrid Name="testsDG" HorizontalAlignment="Center" ItemsSource="{Binding}" Margin="0,80,0,0" VerticalAlignment="Top"  RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True"/>
+        <DataGrid Name="testsDG" HorizontalAlignment="Center" Width="auto" ItemsSource="{Binding}"  VerticalAlignment="Top"  RowHeaderWidth="0" CanUserResizeColumns="False" CanUserResizeRows="False"  IsReadOnly="True" Height="140" Margin="0,67,0,0"/>
 
     </Grid>
 </Page>

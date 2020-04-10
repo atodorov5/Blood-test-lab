@@ -112,23 +112,8 @@ namespace BloodTestLab.userPages
 
         private void testBtn(object sender, RoutedEventArgs e)
         {
-            /*
-             string a = "";
-             foreach (DataRowView item in testList.SelectedItems)
-             {
-                a += item["idTestType"]+" ";
-             }
-             MessageBox.Show(a);
-
-
-             foreach (object selectedItem in testList.SelectedItems)
-             {
-                 DataRowView dr = (DataRowView)selectedItem;
-                 var item = dr["name"];
-                 MessageBox.Show(item + Environment.NewLine);
-             }
- */         int testId;
-            if (!String.IsNullOrEmpty(pinTB.Text))
+            int testId;
+            if (!String.IsNullOrEmpty(pinTB.Text) && testList.SelectedItems.Count > 0 )
             {
 
                 using (var conn = DBConfig.Connection)
@@ -193,7 +178,7 @@ namespace BloodTestLab.userPages
 
                         transaction.Commit();
                         conn.Close();
-                        MessageBox.Show("Успешно направен тест! Дължима сума: " + calculatePrice(testId));
+                        MessageBox.Show("Проба №:"+testId+"\nДължима сума: " + calculatePrice(testId),"Успешно направен тест!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     }
                     catch (MySqlException ex)
@@ -205,7 +190,7 @@ namespace BloodTestLab.userPages
                 nameTB.Clear(); lastnameTB.Clear(); bloodTypeCB.SelectedIndex = -1; pinTB.Clear(); testList.UnselectAll();
             }
             else
-                MessageBox.Show("Въведете ЕГН!");
+                MessageBox.Show("Некоректни данни!");
         }
 
 

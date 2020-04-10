@@ -1,0 +1,17 @@
+﻿<Page x:Class="BloodTestLab.adminPages.welcome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BloodTestLab.adminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="575"
+      Title="welcome">
+
+    <Grid>
+      
+        <Image  Source="/images/loginIcon.png" HorizontalAlignment="Center"  Height="253" Margin="160,56,157,0" VerticalAlignment="Top" Width="258" />
+        <Label FontSize="24" Content="Клиника Ани" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="160,314,0,0" VerticalAlignment="Top" Width="258"/>
+
+    </Grid>
+</Page>

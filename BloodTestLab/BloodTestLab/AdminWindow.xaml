@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BloodTestLab"
         mc:Ignorable="d"
+         WindowStartupLocation="CenterScreen"
         Title="Администраторски прозорец" Height="500" Width="600" Icon="/images/blood-donation.png">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="btv" />
