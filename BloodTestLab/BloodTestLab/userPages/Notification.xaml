@@ -1,0 +1,18 @@
+﻿<Window x:Class="BloodTestLab.userPages.Notification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodTestLab.userPages"
+        mc:Ignorable="d"
+            WindowStartupLocation="CenterScreen"
+         ResizeMode="NoResize"
+        Title="Успешен тест!" Height="177" Width="195"
+  Icon="/images/blood-donation.png">
+    <Grid>
+        <Image Name="barcodeImage" HorizontalAlignment="Left" Height="100" Margin="40,10,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Дължима сума:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+        <Label Name="priceLabel" Content="Label" HorizontalAlignment="Left" Margin="109,110,0,0" VerticalAlignment="Top" Width="68"/>
+
+    </Grid>
+</Window>

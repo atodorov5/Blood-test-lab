@@ -1,10 +1,15 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Gma.QrCodeNet.Encoding;
+using Gma.QrCodeNet.Encoding.Windows.Render;
+using IronBarCode;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace BloodTestLab.userPages
 {
@@ -178,7 +183,21 @@ namespace BloodTestLab.userPages
 
                         transaction.Commit();
                         conn.Close();
-                        MessageBox.Show("Проба №:"+testId+"\nДължима сума: " + calculatePrice(testId),"Успешно направен тест!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        QrEncoder encoder = new QrEncoder(ErrorCorrectionLevel.M);
+                        QrCode qrCode;
+                        encoder.TryEncode(testId.ToString(), out qrCode);
+                        WriteableBitmapRenderer wRenderer = new WriteableBitmapRenderer(new FixedModuleSize(2, QuietZoneModules.Two), Colors.Black, Colors.White);
+                        WriteableBitmap wBitmap = new WriteableBitmap(50, 50, 0, 0, PixelFormats.Gray8, null);
+                        wRenderer.Draw(wBitmap, qrCode.Matrix);
+                        
+                        Notification not = new Notification(calculatePrice(testId), wBitmap);
+                        not.Show();
+
+
+
+
+                        // MessageBox.Show("Проба №:"+testId+"\nДължима сума: " + calculatePrice(testId),"Успешно направен тест!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     }
                     catch (MySqlException ex)
